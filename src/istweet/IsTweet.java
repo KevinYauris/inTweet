@@ -27,7 +27,7 @@ public class IsTweet {
             // TODO code application logic here
     
     TwitterFactory tf = new TwitterFactory(cb.build());
-        Twitter twitter = tf.getInstance();
+    Twitter twitter = tf.getInstance();
  
 
  try {
