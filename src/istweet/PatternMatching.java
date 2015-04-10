@@ -11,23 +11,23 @@ public class PatternMatching {
 
         while(i < n ){
             if (pattern.charAt(j) == text.charAt(i)){
-                if (j == m -1){
+                if (j == m -1)
                     return  i=m+1; // match
-                    i++;
-                    j++;'
-                }else if (j > 0 ){
+                i++;
+                j++;
+            }else if (j > 0 )
                     j = fail[j-1];
-                }else i++;
-            }
-            return -1 // nomatch
-        }// end of kmpMatch
-    }
+            else i++;
+        }
+            return -1; // nomatch
+    }// end of kmpMatch
+    
     //fungsi pembantu KMP Algorithm
     public static int[] computeFail(String pattern){
         int fail[] = new int[pattern.length()];
         fail[0]=0;
         int m = pattern.length();
-        int j - 0;
+        int j = 0;
         int i = 1;
 
         while ( i < m ){
@@ -61,16 +61,22 @@ public class PatternMatching {
                 }
             }else{ //char jump technique
                 int lo = last[text.charAt(i)];
-                i = i +m-Math.min(j,l+lo);
+                i = i +m-Math.min(j,j+lo);
                 j=m-1;
             }
         }while(i <= n-1);
-        return  -1 // no match
+        return  -1; // no match
     }//end of bmMatch()
     public static int[] buildLast(String pattern){
         int last[] = new int[128];
         for (int i=0;i<128;i++) last[i]=-1; //init array
-        for (int i=0;i<pattern.length();i++) last[pattern.charAt()]=i; //init array
+        for (int i=0;i<pattern.length();i++) last[pattern.charAt(i)]=i; //init array
         return last;
     }//end of buildLast()
+    public static void main (String[] args){
+        int i = bmMatch("aku adalah seorang asem","orang");
+        int j = kmpMatch ("jadi aku adalah apa?","apa");
+        System.out.println(i);
+        System.out.println(j);
+    }
 }
